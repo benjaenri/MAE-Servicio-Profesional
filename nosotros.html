@@ -38,13 +38,11 @@
 
     <div class="menu-hamburguesa">
         <a href="index.html">Inicio</a> 
-        <a href="equipos.html" style="color: rgb(255, 0, 0);">Equipos</a>
-        <a href="pilotos.html">Pilotos</a>
-        <a href="pistas.html">Pistas</a>
-        <a href="calendario.html">Calendario</a>
-        <a href="resultados.html">Resultados</a>
-        <a href="historia.html">Historia</a>
+        <a href="nosotros.html" style="color: #ffffff;">Nosotros</a>
+        <a href="servicio.html">Servicios</a>
+        <a href="#">Contacto</a>
     </div>
+
 
     <div class="imagen-intro">
         <img src="img/fondo_nosotros.png" width="100%">
@@ -112,6 +110,12 @@
             encabezado.classList.remove('scrolled');
             }
         });
+
+        // Toggle function for the hamburger menu
+        function toggleMenu() {
+            const menu = document.querySelector('.menu-hamburguesa');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
     </script>
     
 </body>
