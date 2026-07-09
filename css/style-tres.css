@@ -710,11 +710,11 @@ body{
 
     .hero-overlay{
         padding: 0 25px;
-        padding-top: 55px;
+        padding-top: 60px;
     }
 
     .hero-overlay h2{
-        font-size: 36px;
+        font-size: 40px;
         line-height: 1.15;
         letter-spacing: 1px;
         max-width: 100%;
