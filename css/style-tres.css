@@ -1,210 +1,631 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    background-color: #ffffff;
-    font-family: Arial, sans-serif;
-    position: relative;
+html{
+    scroll-behavior:smooth;
 }
 
-.encabezado {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 70px;
-    padding: 0 50px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-    color: white;
+body{
+    font-family:"Kanit",sans-serif;
+    background:#f4f6f8;
+    color:#222;
+    overflow-x:hidden;
 }
 
-.encabezado {
-    background-color: transparent;
-    transition: background-color 0.3s ease;
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.encabezado{
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:80px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 60px;
+
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(6px);
+
+    z-index:1000;
+
+    transition:.35s;
+
 }
 
-.encabezado.scrolled {
-    background-color: #1d1d1d;
+.encabezado.scrolled{
+
+    background:#101010;
+
 }
 
-.logo img {
-    width: 70px;
+.logo{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
 }
 
-.text-logo h1 {
-    font-size: 20px;
-    color: #ffffff;
-    margin-right: 390px;
-    font-weight: bold;
+.logo img{
+
+    width:65px;
+
 }
 
-.botones {
-    display: flex;
-    align-items: center;
+.logo-texto h1{
+
+    color:#fff;
+    font-size:22px;
+    letter-spacing:1px;
+
 }
 
-.pag-links {
-    display: flex;
-    gap: 50px;
+.menu{
+
+    display:flex;
+    gap:35px;
+
 }
 
-.pag-links a {
-    color: rgb(161, 159, 159);
-    text-decoration: none;
-    font-size: 20px;
-    padding: 10px;
-    transition: background-color 0.3s, color 0.3s;
+.menu a{
+
+    color:#d6d6d6;
+    text-decoration:none;
+    font-size:18px;
+
+    transition:.3s;
+
 }
 
-.pag-links a:hover {
-    color: white;
+.menu a:hover,
+.menu .activo{
+
+    color:#35c6d0;
+
 }
 
-.imagen-intro {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-    z-index: 0;
+/* ==========================================================
+   MENU CELULAR
+========================================================== */
+
+.menu-btn{
+
+    display:none;
+
+    border:none;
+    background:none;
+
+    color:#fff;
+
+    font-size:34px;
+
+    cursor:pointer;
+
 }
 
-.titulo1 {
-    position: absolute;
-    z-index: 10;  
-    display: flex;
-    align-items: center;
-    color: white;
-    top: 24%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 80px;
-    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
-    font-family: 'Kanit', sans-serif;
+.menu-mobile{
+
+    position:fixed;
+
+    top:80px;
+    right:-280px;
+
+    width:280px;
+    height:100vh;
+
+    background:#111;
+
+    display:flex;
+    flex-direction:column;
+
+    transition:.35s;
+
+    z-index:999;
+
 }
 
+.menu-mobile.active{
 
-.derechos {
-    color: #fff;
-    font-size: 12px;
-    font-family: sans-serif;
-    text-align: center;
-    margin-top: 20px;
-    padding-top: 10px;
+    right:0;
+
 }
 
-.fondo-derechos {
-    background-image: url("../img/fondo-derechos.png");
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 300px;
-    padding: 20px 0; 
+.menu-mobile a{
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:18px 25px;
+
+    border-bottom:1px solid #262626;
+
 }
 
-.logo-pie{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 15%;
-    margin-top: 0px;
+.menu-mobile a:hover{
+
+    background:#1d1d1d;
+
 }
 
-.text-logo-pie{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 12.1%;
-    margin-top: -20px;
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero{
+
+    position:relative;
+
+    height:520px;
+
+    overflow:hidden;
+
 }
 
-.pie-columnas {
-    display: flex;
-    justify-content: flex-end;
-    gap: 200px;
-    margin-top: -150px;
-    margin-right: 10%;
-    text-align: left;
+.hero img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
 }
 
-.links-rapidos, .info-contacto {
-    display: flex;
-    flex-direction: column;
-    color: #fff;
-    text-align: left;
+.hero-overlay{
+
+    position:absolute;
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
 }
 
-.links-rapidos h3, .info-contacto h3 {
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: bold;
-}
-.links-rapidos ul, .info-contacto ul {
-    font-size: 15px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: left;
+.hero-overlay h2{
+
+    font-size:72px;
+    letter-spacing:2px;
+
 }
 
-.links-rapidos ul li, .info-contacto ul li {
-    margin-bottom: 5px;
+.hero-overlay p{
+
+    margin-top:18px;
+
+    font-size:22px;
+
+    width:min(700px,90%);
+
+    color:#ececec;
+
 }
 
-.links-rapidos a, .info-contacto a {
-    color: #fff;
-    text-decoration: none;
+/* ==========================================================
+   TITULO
+========================================================== */
+
+.obras{
+
+    width:min(1400px,90%);
+
+    margin:90px auto;
+
 }
 
-.links-rapidos a:hover, .info-contacto a:hover {
-    text-decoration: underline;
+.titulo{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
 }
 
-/* Menú hamburguesa */
-.hamburguesa {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
+.titulo h2{
+
+    font-size:48px;
+
+    color:#111;
+
 }
 
-.hamburguesa .linea {
-    width: 25px;
-    height: 3px;
-    background-color: #3e9b95; 
-    border-radius: 5px;
+.titulo p{
+
+    margin-top:15px;
+
+    color:#666;
+
+    font-size:18px;
+
 }
 
-.menu-hamburguesa {
-    display: none;
-    flex-direction: column;
-    background-color: #000;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 200px;
-    height: 100%;
-    padding-top: 70px;
-    z-index: 99;
+/* ==========================================================
+   TARJETAS
+========================================================== */
+
+.obra{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-bottom:70px;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.12);
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
 }
 
-.menu-hamburguesa a {
-    color: rgb(161, 159, 159);
-    text-decoration: none;
-    font-size: 20px;
-    padding: 10px;
-    transition: background-color 0.3s, color 0.3s;
-    display: block;
+.obra:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 25px 55px rgba(0,0,0,.18);
+
 }
 
-.menu-hamburguesa a:hover {
-    color: white;
+.obra-texto{
+
+    padding:35px;
+
+    border-left:7px solid #35c6d0;
+
 }
+
+.obra-texto h3{
+
+    font-size:30px;
+
+    color:#111;
+
+}
+
+.ubicacion{
+
+    display:block;
+
+    margin:12px 0 20px;
+
+    color:#666;
+
+    font-size:17px;
+
+}
+
+.obra-texto p{
+
+    line-height:30px;
+
+    color:#555;
+
+    font-size:17px;
+
+}/* ==========================================================
+   CARRUSEL
+========================================================== */
+
+.carousel{
+
+    position:relative;
+
+    width:100%;
+    height:520px;
+
+    overflow:hidden;
+
+    background:#000;
+
+}
+
+.carousel-track{
+
+    display:flex;
+
+    width:100%;
+    height:100%;
+
+    transition:transform .6s ease;
+
+}
+
+.carousel-track .slide{
+
+    flex:0 0 100%;
+
+}
+
+.slide{
+
+    width:100%;
+    height:100%;
+
+    flex-shrink:0;
+
+    object-fit:cover;
+
+    user-select:none;
+
+    cursor:pointer;
+
+}
+
+/* ==========================================================
+   BOTONES
+========================================================== */
+
+.btn{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:55px;
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.45);
+
+    color:#fff;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    z-index:10;
+
+}
+
+.btn:hover{
+
+    background:#35c6d0;
+
+}
+
+.prev{
+
+    left:20px;
+
+}
+
+.next{
+
+    right:20px;
+
+}
+
+/* ==========================================================
+   INDICADORES
+========================================================== */
+
+.indicadores{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    padding:22px;
+
+}
+
+.dot{
+
+    width:13px;
+
+    height:13px;
+
+    border-radius:50%;
+
+    background:#c8c8c8;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.dot.activo{
+
+    background:#35c6d0;
+
+    transform:scale(1.2);
+
+}
+
+/* ==========================================================
+   CLIENTE
+========================================================== */
+
+.cliente{
+
+    background:#fafafa;
+
+    padding:35px;
+
+    border-top:1px solid #ececec;
+
+}
+
+.estrellas{
+
+    color:#ffc400;
+
+    font-size:28px;
+
+    margin-bottom:18px;
+
+}
+
+.cliente strong{
+
+    display:block;
+
+    font-size:18px;
+
+    color:#111;
+
+    margin-bottom:10px;
+
+}
+
+.cliente blockquote{
+
+    border-left:4px solid #35c6d0;
+
+    padding-left:18px;
+
+    color:#666;
+
+    line-height:30px;
+
+    font-style:italic;
+
+}
+
+/* ==========================================================
+   LIGHTBOX
+========================================================== */
+
+.lightbox{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.92);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+}
+
+.lightbox.activo{
+
+    display:flex;
+
+}
+
+#lightboxImg{
+
+    max-width:90%;
+
+    max-height:90%;
+
+    border-radius:12px;
+
+}
+
+.lightbox-cerrar{
+
+    position:absolute;
+
+    top:20px;
+
+    right:35px;
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    font-size:45px;
+
+    cursor:pointer;
+
+}
+
+.lightbox-prev,
+.lightbox-next{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+}
+
+.lightbox-prev{
+
+    left:40px;
+
+}
+
+.lightbox-next{
+
+    right:40px;
+
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover{
+
+    background:#35c6d0;
+
+}/* ==========================================================
+   SCROLLBAR
+========================================================== */
 
 /* Scroll para navegadores WebKit (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
@@ -227,78 +648,668 @@ body {
     scrollbar-color: #0c141c #d0f0ee;
 }
 
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
 
-/* Media query para pantallas pequeñas */
-@media (max-width: 768px) {
+@media(max-width:1000px){
 
-    .text-logo h1 {
-        margin-right: 0px;
+    .encabezado{
+
+        padding:0 25px;
+
     }
 
-    .pag-links {
-        display: none;
+    .menu{
+
+        display:none;
+
     }
 
-    .hamburguesa {
-        display: flex;
+    .menu-btn{
+
+        display:block;
+
     }
 
-    .menu-hamburguesa.active {
-        display: flex;
+    .hero{
+
+        height:380px;
+
     }
 
-    .menu-hamburguesa {
-        display: none;
-        flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.8); 
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 200px;
-        max-height: calc(100% - 70px); 
-        padding-top: 70px;
-        z-index: 99;
-        overflow-y: auto; 
+    .hero-overlay h2{
+
+        font-size:42px;
+
     }
 
-    .encabezado {
-        height: 50px;
-        padding: 0 40px;
-    }
-    
-    .logo img {
-        width: 40px;
+    .hero-overlay p{
+
+        font-size:17px;
+
     }
 
-    .text-logo h1 {
-        font-size: 10px;
-        color: #ffffff;
-        margin-right: 300px;
-        font-weight: bold;
-    }
-    
-    .titulo1 {
-        top: 70px;
-        left: 85%;
-        transform: translateX(-50%);
+    .carousel{
+
+        height:320px;
+
     }
 
-    .titulo2 {
-        top: 190px;
-        left: 125%;
-        transform: translateX(-50%);
-        max-width: 100%;
-        text-align: center;
-        display: flex;
+    .footer-contenedor{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .obra-texto{
+
+        padding:25px;
+
+    }
+
+    .obra-texto h3{
+
+        font-size:24px;
+
+    }
+
+    .obra-texto p{
+
+        font-size:16px;
+
+        line-height:28px;
+
+    }
+
+    .carousel{
+
+        height:230px;
+
+    }
+
+    .btn{
+
+        width:42px;
+        height:42px;
+
+        font-size:22px;
+
+    }
+
+    .lightbox-prev,
+    .lightbox-next{
+
+        width:45px;
+        height:45px;
+
+        font-size:24px;
+
+    }
+
+    .lightbox-prev{
+
+        left:10px;
+
+    }
+
+    .lightbox-next{
+
+        right:10px;
+
+    }
+
+    .lightbox-cerrar{
+
+        top:15px;
+
+        right:15px;
+
+        font-size:36px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   AJUSTES FINALES - TARJETAS MAS COMPACTAS
+========================================================== */
+
+.obras{
+    width: 82%;
+    max-width: 1050px;
+    margin: 65px auto;
+}
+
+.obra{
+    border-radius: 16px;
+    margin-bottom: 50px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.11);
+}
+
+.obra-texto{
+    padding: 24px 28px;
+    border-left: 5px solid #35c6d0;
+}
+
+.obra-texto h3{
+    font-size: 25px;
+}
+
+.ubicacion{
+    margin: 7px 0 12px;
+    font-size: 15px;
+}
+
+.obra-texto p{
+    line-height: 25px;
+    font-size: 15px;
+}
+
+
+/* CARRUSEL MAS CHICO */
+
+.carousel{
+    height: 390px;
+}
+
+
+/* FLECHAS MAS CHICAS */
+
+.btn{
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+}
+
+.prev{
+    left: 15px;
+}
+
+.next{
+    right: 15px;
+}
+
+
+/* INDICADORES MAS CHICOS */
+
+.indicadores{
+    gap: 9px;
+    padding: 15px;
+}
+
+.dot{
+    width: 10px;
+    height: 10px;
+}
+
+
+/* COMENTARIOS MAS COMPACTOS */
+
+.cliente{
+    padding: 22px 28px;
+}
+
+.estrellas{
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.cliente strong{
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.cliente blockquote{
+    border-left: 3px solid #35c6d0;
+    padding-left: 14px;
+    line-height: 25px;
+    font-size: 14px;
+}
+
+
+/* ==========================================================
+   FOOTER MAE
+========================================================== */
+
+
+.derechos{
+    color: #fff;
+    font-size: 12px;
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.fondo-derechos{
+    position: relative;
+
+    background-image: url("../img/fondo-derechos.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 100%;
+    min-height: 320px;
+
+    padding: 25px 0 0;
+}
+
+.fondo-derechos::before{
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,.15);
+}
+
+.contenido-derechos{
+    position: relative;
+    z-index: 2;
+    min-height: 295px;
+}
+
+.logo-pie{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-left: 15%;
+}
+
+.logo-pie img{
+    width: 190px;
+}
+
+.text-logo-pie{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-left: 12.1%;
+    margin-top: -15px;
+}
+
+.text-logo-pie h1{
+    font-size: 23px;
+}
+
+.pie-columnas{
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 160px;
+
+    margin-top: -125px;
+    margin-right: 10%;
+
+    text-align: left;
+}
+
+.links-rapidos,
+.info-contacto{
+    display: flex;
+    flex-direction: column;
+
+    color: #fff;
+
+    text-align: left;
+}
+
+.links-rapidos h3,
+.info-contacto h3{
+    margin-bottom: 10px;
+
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.links-rapidos ul,
+.info-contacto ul{
+    font-size: 14px;
+
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+}
+
+.links-rapidos ul li,
+.info-contacto ul li{
+    margin-bottom: 7px;
+}
+
+.links-rapidos a,
+.info-contacto a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.links-rapidos a:hover,
+.info-contacto a:hover{
+    text-decoration: underline;
+}
+
+
+/* COPYRIGHT */
+
+.copyright-mae{
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 15px;
+
+    border-top: 1px solid rgba(255,255,255,.15);
+
+    background: rgba(0,0,0,.25);
+
+    color: rgba(255,255,255,.75);
+
+    font-size: 13px;
+
+    text-align: center;
+}
+
+
+/* ==========================================================
+   RESPONSIVE FOOTER
+========================================================== */
+
+@media(max-width: 700px){
+
+    .obras{
+        width: 92%;
+    }
+
+    .carousel{
+        height: 250px;
+    }
+
+    .fondo-derechos{
+        min-height: auto;
+        padding: 35px 20px 0;
+    }
+
+    .contenido-derechos{
+        min-height: auto;
+    }
+
+    .logo-pie{
         align-items: center;
-        justify-content: center;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        z-index: 10;
-        color: white;
+        margin-left: 0;
     }
 
+    .text-logo-pie{
+        align-items: center;
+        margin-left: 0;
+        margin-top: -10px;
+    }
 
+    .pie-columnas{
+        flex-direction: column;
+
+        gap: 30px;
+
+        margin-top: 40px;
+        margin-right: 0;
+
+        text-align: center;
+    }
+
+    .links-rapidos,
+    .info-contacto{
+        text-align: center;
+        align-items: center;
+    }
+
+    .copyright-mae{
+        position: relative;
+
+        margin-top: 40px;
+    }
+
+}
+
+/* ==========================================================
+   SISTEMA DE RESEÑAS
+========================================================== */
+
+.resenas-publicadas{
+    padding: 22px 28px;
+    background: #fafafa;
+    border-top: 1px solid #ececec;
+}
+
+.sin-resenas{
+    color: #888;
+    font-size: 14px;
+    font-style: italic;
+    text-align: center;
+}
+
+.resena-publicada{
+    padding: 5px 0;
+}
+
+.resena-estrellas{
+    color: #ffc400;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.resena-publicada blockquote{
+    border-left: 3px solid #35c6d0;
+    padding-left: 14px;
+    color: #666;
+    line-height: 25px;
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.autor-resena{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-cliente{
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #35c6d0;
+    color: #fff;
+
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.datos-cliente{
+    display: flex;
+    flex-direction: column;
+}
+
+.datos-cliente strong{
+    color: #111;
+    font-size: 15px;
+}
+
+.verificado{
+    color: #22aeb8;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* ==========================================================
+   FORMULARIO DE RESEÑA
+========================================================== */
+
+.formulario-resena{
+    padding: 24px 28px;
+    background: #fff;
+    border-top: 1px solid #ececec;
+}
+
+.formulario-resena h4{
+    color: #111;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.formulario-resena > p{
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.nombre-resena,
+.comentario-resena{
+    width: 100%;
+
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+
+    padding: 12px 14px;
+
+    font-family: "Kanit", sans-serif;
+    font-size: 14px;
+
+    outline: none;
+
+    transition: .25s;
+}
+
+.nombre-resena:focus,
+.comentario-resena:focus{
+    border-color: #35c6d0;
+
+    box-shadow:
+        0 0 0 3px rgba(53,198,208,.12);
+}
+
+.comentario-resena{
+    min-height: 100px;
+
+    margin-top: 14px;
+
+    resize: vertical;
+}
+
+
+/* ==========================================================
+   SELECTOR DE ESTRELLAS
+========================================================== */
+
+.selector-estrellas{
+    display: flex;
+
+    gap: 5px;
+
+    margin: 14px 0 2px;
+}
+
+.selector-estrellas button{
+    border: none;
+
+    background: transparent;
+
+    color: #cfcfcf;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    transition: .2s;
+}
+
+.selector-estrellas button:hover,
+.selector-estrellas button.activa{
+    color: #ffc400;
+
+    transform: scale(1.08);
+}
+
+
+/* ==========================================================
+   BOTÓN ENVIAR RESEÑA
+========================================================== */
+
+.enviar-resena{
+    margin-top: 15px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #35c6d0;
+    color: #fff;
+
+    padding: 11px 22px;
+
+    font-family: "Kanit", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.enviar-resena:hover{
+    background: #22aeb8;
+
+    transform: translateY(-2px);
+}
+
+.enviar-resena:disabled{
+    opacity: .6;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+.mensaje-resena{
+    margin-top: 12px !important;
+    margin-bottom: 0 !important;
+
+    font-size: 13px !important;
+}
+
+
+/* ==========================================================
+   RESEÑAS RESPONSIVE
+========================================================== */
+
+@media(max-width:700px){
+
+    .resenas-publicadas,
+    .formulario-resena{
+        padding: 20px;
+    }
+
+    .selector-estrellas button{
+        font-size: 28px;
+    }
 
 }
