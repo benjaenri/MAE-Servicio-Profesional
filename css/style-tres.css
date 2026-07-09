@@ -709,12 +709,11 @@ body{
 @media(max-width:700px){
 
     .hero-overlay{
-        padding: 0 25px;
-        padding-top: 60px;
+        padding: 0 30px;
     }
 
     .hero-overlay h2{
-        font-size: 40px;
+        font-size: 32px;
         line-height: 1.15;
         letter-spacing: 1px;
         max-width: 100%;
@@ -722,70 +721,47 @@ body{
     }
 
     .obra-texto{
-
         padding:25px;
-
     }
 
     .obra-texto h3{
-
         font-size:24px;
-
     }
 
     .obra-texto p{
-
         font-size:16px;
-
         line-height:28px;
-
     }
 
     .carousel{
-
         height:230px;
-
     }
 
     .btn{
-
         width:42px;
         height:42px;
-
         font-size:22px;
-
     }
 
     .lightbox-prev,
     .lightbox-next{
-
         width:45px;
         height:45px;
-
         font-size:24px;
-
     }
 
     .lightbox-prev{
-
         left:10px;
-
     }
 
     .lightbox-next{
-
         right:10px;
-
     }
 
     .lightbox-cerrar{
-
         top:15px;
-
         right:15px;
-
         font-size:36px;
-
     }
 
 }
