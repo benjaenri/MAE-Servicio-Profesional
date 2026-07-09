@@ -12,36 +12,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="encabezado">
-        <div class="logo">
-            <img src="img/logo.trans.png" width="70px" alt="logo">
-        </div>
-        <div class="text-logo">
+    <header class="encabezado">
+
+    <div class="logo">
+
+        <img src="img/logo.trans.png" alt="MAE">
+
+        <div class="logo-texto">
+
             <h1>SERVICIO PROFESIONAL</h1>
+
         </div>
-        <div class="botones">
-            <div class="pag-links">
-                <a href="index.html">Inicio</a> 
-                <a href="nosotros.html" style="color: #ffffff;">Nosotros</a>
-                <a href="servicio.html">Servicios</a>
-                <a href="#">Contacto</a>
-            </div>
-        
-            <!-- Icono del menú hamburguesa -->
-            <div class="hamburguesa" onclick="toggleMenu()">
-                <div class="linea"></div>
-                <div class="linea"></div>
-                <div class="linea"></div>
-            </div>
-        </div>
+
     </div>
 
-    <div class="menu-hamburguesa">
-        <a href="index.html">Inicio</a> 
-        <a href="nosotros.html" style="color: #ffffff;">Nosotros</a>
+    <nav class="menu">
+
+        <a href="index.html">Inicio</a>
+        <a href="nosotros.html" class="activo">Nosotros</a>
         <a href="servicio.html">Servicios</a>
-        <a href="#">Contacto</a>
-    </div>
+        <a href="contacto.html">Contacto</a>
+
+    </nav>
+
+    <button class="menu-btn" id="menuBtn">
+
+        ☰
+
+    </button>
+
+</header>
+
+<nav class="menu-mobile" id="menuMobile">
+
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="servicio.html">Servicios</a>
+    <a href="contacto.html">Contacto</a>
+
+</nav>
+
+
 
 
     <div class="imagen-intro">
@@ -66,57 +77,91 @@
     </div>
     
     <div class="derechos">
+
         <div class="fondo-derechos">
+
             <div class="contenido-derechos">
+
                 <div class="logo-pie">
                     <img src="img/logo.trans.png" width="220" alt="logo">
-                    <p></p>
                 </div>
+
                 <div class="text-logo-pie">
                     <h1>SERVICIO PROFESIONAL</h1>
                 </div>
 
                 <div class="pie-columnas">
-                    <!-- Links rápidos -->
+
                     <div class="links-rapidos">
+
                         <h3>Links Rápidos</h3>
+
                         <ul>
                             <li><a href="index.html">➤ Inicio</a></li>
                             <li><a href="nosotros.html">➤ Nosotros</a></li>
                             <li><a href="servicio.html">➤ Servicio</a></li>
                             <li><a href="contacto.html">➤ Contacto</a></li>
                         </ul>
+
                     </div>
 
                     <div class="info-contacto">
+
                         <h3>Información de contacto</h3>
+
                         <ul>
-                            <li>➤ WhatsApp: <a href="https://wa.me/5491141469262" target="_blank">+54 9 11 41469262</a></li>
-                            <li>➤ Email: <a href="mailto:correo@ejemplo.com">correo@ejemplo.com</a></li>
+
+                            <li>
+                                ➤ WhatsApp:
+                                <a href="https://wa.me/5491141469262" target="_blank">
+                                    +54 9 11 41469262
+                                </a>
+                            </li>
+
+                            <li>
+                                ➤ Email:
+                                <a href="mailto:correo@ejemplo.com">
+                                    correo@ejemplo.com
+                                </a>
+                            </li>
+
                         </ul>
+
                     </div>
+
+                </div>
+
+                <div class="copyright-mae">
+                    © 2026 MAE Servicio Profesional. Todos los derechos reservados.
                 </div>
 
             </div>
+
         </div>
-    </div>
     
     <script>
-        window.addEventListener('scroll', function() {
-            const encabezado = document.querySelector('.encabezado');
-            if (window.scrollY > 0) {
-            encabezado.classList.add('scrolled');
-            } else {
-            encabezado.classList.remove('scrolled');
-            }
-        });
+const menuBtn = document.getElementById("menuBtn");
+const menuMobile = document.getElementById("menuMobile");
+const header = document.querySelector(".encabezado");
 
-        // Toggle function for the hamburger menu
-        function toggleMenu() {
-            const menu = document.querySelector('.menu-hamburguesa');
-            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-        }
-    </script>
+menuBtn.addEventListener("click", () => {
+    menuMobile.classList.toggle("active");
+});
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});
+
+document.querySelectorAll(".menu-mobile a").forEach((link) => {
+    link.addEventListener("click", () => {
+        menuMobile.classList.remove("active");
+    });
+});
+</script>
     
 </body>
 </html>
