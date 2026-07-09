@@ -680,13 +680,13 @@ body{
 
     .hero-overlay h2{
 
-        font-size:25px;
+        font-size:42px;
 
     }
 
     .hero-overlay p{
 
-        font-size:12px;
+        font-size:17px;
 
     }
 
@@ -707,6 +707,18 @@ body{
 }
 
 @media(max-width:700px){
+
+    .hero-overlay{
+        padding: 0 30px;
+    }
+
+    .hero-overlay h2{
+        font-size: 32px;
+        line-height: 1.15;
+        letter-spacing: 1px;
+        max-width: 100%;
+        text-align: center;
+    }
 
     .obra-texto{
 
