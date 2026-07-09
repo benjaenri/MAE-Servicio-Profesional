@@ -708,6 +708,12 @@ body{
 
 @media(max-width:700px){
 
+   .hero-overlay h2{
+
+        font-size:30px;
+
+    }
+
     .obra-texto{
 
         padding:25px;
