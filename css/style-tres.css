@@ -708,6 +708,19 @@ body{
 
 @media(max-width:700px){
 
+   .hero-overlay{
+        padding: 0 25px;
+        padding-top: 55px;
+    }
+
+    .hero-overlay h2{
+        font-size: 36px;
+        line-height: 1.15;
+        letter-spacing: 1px;
+        max-width: 100%;
+        text-align: center;
+    }
+
     .obra-texto{
         padding:25px;
     }
